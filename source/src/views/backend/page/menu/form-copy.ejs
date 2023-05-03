@@ -1,4 +1,6 @@
-<% include ./../../helper/image.ejs %>
+
+<% include ./../../helper/select-box-link-menu.ejs %>
+
 <% 
 	const collection = 'menu'
 	const linkPrefix = systemConfig.prefixAdmin + `/${collection}/`
@@ -7,6 +9,7 @@
 <h3><%- locals.flash %></h3>
 
 <div style="margin: 5%">
+    <h1><%= pageTitle%></h1>
     <div class="button_setting">
         <button type="button" class="btn btn-primary btn_menu" id="add_menu">
             Add Menu Child
@@ -20,10 +23,10 @@
     </div>
     <div class="card card-danger">
         <form action= <%= linkPrefix + 'form'%> method="POST" class="mb-0" id ="form-category">
-            <div class="card-body" id = "menu">
+            <div class="card-body card-menu">
                     <div class="form-group" >
                         <label for="menu">Name Menu</label>
-                        <input type="text" class="form-control" name="menu" value="<%= items.name%>">
+                        <input type="text" class="form-control" name="menu" id="menu" value="<%= items.name%>">
                     </div>
                     <div class="form-group" >
                         <label for="menu">Status</label>
@@ -38,13 +41,13 @@
                     <% if (items.id === undefined) { %>
                         <div class="form-group" id="link_menu" >
                             <label for="link">Link</label>
-                            <input type="text" class="form-control" name="link" value="">
+                            <input type="text" class="form-control" name="link" id="link" value="">
                         </div>
                     <% } else { %>
                         <% if (items.parent === "false") { %>
                             <div class="form-group" id="link_menu" >
                                 <label for="link">Link</label>
-                                <input type="text" class="form-control" name="link" value="<%= items.link%>">
+                                <input type="text" class="form-control" name="link" id="link" value="<%= items.link%>">
                             </div>
                         <% } else { %>
                             <% items.child.forEach((values,index) => { %>
@@ -55,7 +58,7 @@
                                     </div>
                                     <div class="form-group" >
                                         <label for="link_child">Link Child</label>
-                                        <input type="text" class="form-control" name="link_child" value="<%= values.link_child%>">
+                                        <input type="text" class="form-control" name="link_child"  value="<%= values.link_child%>">
                                     </div>
                                     <input type="hidden" name="parent" value="true">
                                 </div>
@@ -76,3 +79,4 @@
         </form>
     </div>
 </div>
+

@@ -1,119 +1,92 @@
-<footer class="footer ttm-bg ttm-bgcolor-darkgrey widget-footer clearfix">
-    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+<% 
+    const collection= "contact" 
+    const linkPrefix= `/${collection}`   
+%>
+
+<footer id="footer" class="border-0 bg-white">
     <div class="container">
-        <div class="first-footer">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 widget-area">
-                    <h3>Sign Up To Get Latest Update</h3>
-                    <p>Sign up for our monthly newsletter for the latest news & articles</p>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 widget-area">
-                    <form id="subscribe-form" class="newsletter-form" method="post" action="#" data-mailchimp="true">
-                        <div class="mailchimp-inputbox clearfix" id="subscribe-content"> 
-                            <p><input type="email" name="email" placeholder="Enter Your Email" required=""></p>
-                            <p><button class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-squar ttm-btn-style-fill ttm-btn-color-skincolor" type="submit">Subscribe Now</button></p>
-                        </div>
-                        <div id="subscribe-msg"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="second-footer">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 widget-area">
-                    <div class="widget widget_text clearfix">
-                        <div class="footer-logo">
-                            <img width="205" height="65" id="footer-logo-img" class="img-fluid" src="frontend/images/footer-logo.svg" alt="image">
-                        </div>
-                        <div class="textwidget widget-text">
-                            <p>Inoterior design consultancy firm that brings sensitivity to the design top restaurants, hotels, offices & homes around the world, the prestigious luxury is. We do all types of interior designing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 widget-area">
-                    <div class="widget widget_nav_menu clearfix">
-                       <h3 class="widget-title">Quick Links</h3>
-                        <ul id="menu-footer-service-link" class="menu">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Testimonial</a></li>
-                            <li><a href="#">Latest News</a></li>
-                            <li><a href="#">Our Team</a></li>
-                            <li><a href="#">Planning</a></li>
-                            <li><a href="#">Designing</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+
+        <!-- Footer Widgets
+        ============================================= -->
+        <div class="footer-widgets-wrap py-lg-6">
+            <div class="row col-mb-30">
+
+                <!-- Footer Col 1 -->
+                <div class="col-lg-3 col-md-3 col-6">
+                    <div class="widget widget_links widget-li-noicon">
+
+                        <h4 class="ls0 nott">Social</h4>
+
+                        <ul class="list-unstyled iconlist ms-0">
+                            <li><a href="<%= listSetting.facebook%>" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
+                            <li><a href="<%= listSetting.instagram%>" target="_blank"><i class="icon-instagram"></i> Instagram</a></li>
+                            <li><a href="<%= listSetting.youtube%>" target="_blank"><i class="icon-youtube"></i> YouTube</a></li>
                         </ul>
+
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-4 widget-area">
-                    <div class="widget widget-timing clearfix">
-                        <h3 class="widget-title">Contact</h3>
-                        <div class="featured-icon-box icon-align-before-content icon-ver_align-top style1">
-                            <div class="featured-icon">
-                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
-                                    <i class="flaticon flaticon-call-1"></i>
-                                </div>
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title">
-                                    <h3>Phone Number</h3>
-                                </div>
-                                <div class="featured-desc">
-                                    <p>+123 456 7890</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="featured-icon-box icon-align-before-content icon-ver_align-top style1">
-                            <div class="featured-icon">
-                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
-                                    <i class="flaticon flaticon-email"></i>
-                                </div>
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title">
-                                    <h3>Email Address</h3>
-                                </div>
-                                <div class="featured-desc">
-                                    <p>info@abcmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="featured-icon-box icon-align-before-content icon-ver_align-top style1">
-                            <div class="featured-icon">
-                                <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
-                                    <i class="flaticon flaticon-navigation"></i>
-                                </div>
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title">
-                                    <h3>Location</h3>
-                                </div>
-                                <div class="featured-desc">
-                                    <p>14/A, Miranda City, NYC</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-footer-text">
-            <div class="row copyright">
-                <div class="col-lg-7 col-md-8">
-                    <p class="mb-0 res-991-pb-15">Copyright © 2021 <a href="#">Inoterior</a> Template. All rights reserved.</p>
-                </div>
-                <div class="col-lg-5 col-md-4">
-                    <div class="social-icons d-flex align-items-center justify-content-end">
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+
+                <!-- Footer Col 2 -->
+                <div class="col-lg-3 col-md-3 col-6">
+                    <div class="widget widget_links widget-li-noicon">
+
+                        <h4 class="ls0 nott">Khai Space</h4>
+
+                        <ul class="list-unstyled iconlist ms-0">
+                            <li><a href="<%= listSetting.introduce%>">Giới Thiệu</a></li>
+                            <li><a href="<%= listSetting.group_member%>">Thẻ Hội Viên</a></li>
+                            <li><a href="<%= listSetting.refund_link%>">Chính Sách Đổi Trả</a></li>
                         </ul>
+
                     </div>
                 </div>
+
+                <!-- Footer Col 3 -->
+                <div class="col-lg-3 col-md-3 col-6">
+                    <div class="widget widget_links widget-li-noicon">
+
+                        <h4 class="ls0 nott">Trending</h4>
+
+                        <ul class="list-unstyled iconlist ms-0">
+                            <li><a href="<%= listSetting.product_trend%>">Sản Phẩm Mới</a></li>
+                            <li><a href="<%= listSetting.design_trend%>">Phong Cách Thiết Kế Mới</a></li>
+                            <li><a href="<%= listSetting.news%>">Cổ Tích KHAI SPACE</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <!-- Footer Col 4 -->
+                <div class="col-lg-3">
+                    <div class="widget subscribe-widget clearfix" data-loader="button">
+                        <h4>Contact us</h4>
+                        <h5 class="font-body op-04"><%= listSetting.description_contact%></h5>
+                        <div class="widget-subscribe-form-result"></div>
+                        <form id="widget-subscribe-form" action="<%= linkPrefix%>" method="post" class="mb-0">
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" class="form-control required email" placeholder="<%= listSetting.mail%>">
+                                <button class="btn btn-dark bg-color px-3 input-group-text" type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
-        </div>
+
+        </div><!-- .footer-widgets-wrap end -->
+
     </div>
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights" class="py-3 bg-color-light">
+        <div class="container">
+
+            <div class="d-flex justify-content-between op-04">
+                <span>&copy; 2020 All Rights Reserved by Canvas Inc.</span>
+                <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+            </div>
+
+        </div>
+    </div><!-- #copyrights end -->
 </footer>

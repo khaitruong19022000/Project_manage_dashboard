@@ -1,36 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from themetechmount.com/html/inoterior-dark/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Mar 2023 16:22:29 GMT -->
-
-<head>
-    <%- include('./elements/title.ejs'); -%>
-    <%- include('./elements/css.ejs'); -%>
+<html dir="ltr" lang="en-US">
+<head>	
+	<%- include('./elements/title.ejs'); -%>
+	<!-- Stylesheets
+	============================================= -->
+	<%- include('./elements/css.ejs'); -%>
+	<!-- Document Title
+	============================================= -->
 </head>
 
-<body>
-    <!--page start-->
-    <div class="page ttm-bgcolor-darkgrey">
-        <!--header start-->
-        <%- include('./elements/header.ejs'); -%>
-        <!--header end-->
+<body class="stretched">
 
-        <%- body %>
+	<!-- Cart Panel Background
+	============================================= -->
+	<div class="body-overlay"></div>
 
-        <!--footer start-->
-        <%- include('./elements/footer.ejs'); -%>
-        <!--footer end-->
+	<!-- Cart Side Panel
+	============================================= -->
+	<%- include('./elements/side-cart.ejs'); -%>
 
-        <!--back-to-top start-->
-        <a id="totop" href="#top">
-            <i class="fa fa-angle-up"></i>
-        </a>
-        <!--back-to-top end-->
-    </div><!-- page end -->
-    <!-- Javascript -->
-    <%- include('./elements/script.ejs'); -%>
-    <!-- Javascript end-->
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+		<!-- Top Bar inform
+		============================================= -->
+		<%- include('./elements/top-bar.ejs'); -%>
+		<!-- #top-bar end -->
+
+		<!-- Header
+		============================================= -->
+		<%- include('./elements/header.ejs'); %>
+		<!-- #header end -->
+
+		<%- body %>
+
+		<!-- Footer
+		============================================= -->
+		<%- include('./elements/footer.ejs'); -%>
+		<!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<%- include('./elements/go-to.ejs'); -%>
+	<!-- JavaScripts
+	============================================= -->
+	<%- include('./elements/script.ejs'); -%>
 
 </body>
-<!-- Mirrored from themetechmount.com/html/inoterior-dark/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Mar 2023 16:22:43 GMT -->
 </html>

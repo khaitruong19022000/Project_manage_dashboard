@@ -7,10 +7,16 @@ const ArticleModel = new Schema({
     status : {
         type : String,
     },
+    slug : {
+        type : String,
+    },
     ordering : {
         type : Number,
     },
     content : {
+        type : String,
+    },
+    short_description : {
         type : String,
     },
     avatar : {

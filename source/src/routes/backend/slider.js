@@ -12,15 +12,14 @@ router
     .route('/form(/:id)?')
     .get(SliderController.getForm)
     .post(SliderController.saveItem)
-    // .post(uploadAvatar, SliderController.saveItem)
 
 router
     .route('/change-status/:id/:status')
     .get(SliderController.getStatus)
 
 router
-    .route('/change-ordering/:id/:ordering')
-    .get(SliderController.getOrdering)
+    .route('/change-number/:id/:number/:collection')
+    .get(SliderController.getNumber)
     
 router
     .route('/change-category/:id/:id_category')
@@ -41,11 +40,6 @@ router
 router
     .route('/multipleAction')
     .post(SliderController.changeMultipleAction)
-
-router
-    .route('/upload')
-    .get(SliderController.getUpload)
-    .post(SliderController.saveUpload)
  
 router
     .route('/rss')

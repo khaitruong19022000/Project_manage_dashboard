@@ -7,6 +7,9 @@ const CategoryModel = new Schema({
     status : {
         type : String,
     },
+    slug : {
+        type : String,
+    },
     ordering : {
         type : Number,
     },

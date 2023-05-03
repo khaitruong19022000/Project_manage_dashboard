@@ -5,9 +5,20 @@
           { name: 'Blog Category', icon: 'ion-clipboard', link: `${systemConfig.prefixAdmin}/category/`},
           { name: 'Blog Article', icon: 'fas fa-blog', link: `${systemConfig.prefixAdmin}/article/`},
         ], name: 'Manage Blog', icon: 'fas fa-list', link: `#`},
+        {parent: true, child: [
+          { name: 'Product Category', icon: 'ion-clipboard', link: `${systemConfig.prefixAdmin}/category_product/`},
+          { name: 'Product', icon: 'fas fa-blog', link: `${systemConfig.prefixAdmin}/product/`},
+        ], name: 'Manage Product', icon: 'fas fa-list', link: `#`},
         {parent: false, name: 'Slider', icon: 'fas fa-table', link: `${systemConfig.prefixAdmin}/slider/`},
+        {parent: false, name: 'Contact', icon: 'fas fa-wrench', link: `${systemConfig.prefixAdmin}/contact/`},
         {parent: false, name: 'Menu', icon: 'fas fa-chart-pie"', link: `${systemConfig.prefixAdmin}/menu/`},
         {parent: false, name: 'Setting', icon: 'fas fa-wrench"', link: `${systemConfig.prefixAdmin}/setting/`},
+        {parent: false, name: 'Phí Vận Chuyển', icon: 'fas fa-table', link: `${systemConfig.prefixAdmin}/phiVanChuyen/`},
+        {parent: false, name: 'Mã Giảm Giá', icon: 'fas fa-blog', link: `${systemConfig.prefixAdmin}/maGiamGia/`},
+        {parent: true, child: [
+          { name: 'Account Category', icon: 'ion-clipboard', link: `${systemConfig.prefixAdmin}/category_account/`},
+          { name: 'Account', icon: 'fas fa-blog', link: `${systemConfig.prefixAdmin}/account/`},
+        ], name: 'Manage Account', icon: 'fas fa-list', link: `#`},
     ];
     
     let xhtmlMenu = '';

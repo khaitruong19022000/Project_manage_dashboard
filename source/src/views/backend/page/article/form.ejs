@@ -8,7 +8,7 @@
 %>
 
     <div class="card card-info card-outline">
-        <form action= <%= linkPrefix + 'form'%> method="POST" id ="form-category" enctype="multipart/form-data" >
+        <form action= <%= linkPrefix + 'form'%> method="POST" id ="form-article" enctype="multipart/form-data" >
             <div class="card-body">
                 <h1>
                     <%= pageTitle%>
@@ -53,9 +53,6 @@
                         <input type="file" id="avatar" name="avatar" class="form-control form-control-sm" value="abc" style="padding-bottom: 2rem">
                         <span class="form-message" style = "color: red;"></span>
                     </div>
-                    <div class="help-block with-errors text-red m-2" style="padding-left: 17%;">
-                        <%= (typeof errorArr !== "undefined")?errorArr.avatar:"" %>
-                    </div>
                 </div>
                 <% if(items.id !== undefined && items.id !== ''){ %>
                     <div class="form-group row">
@@ -65,6 +62,11 @@
                         </div>
                     </div>
                 <%}%>
+                <div class="form-group row">
+                    <label for="content_ck" class="col-sm-2 col-form-label text-sm-right required">Short Description</label>
+                    <textarea name="short_description" rows="3" cols="127" id="short_description"><%= items.short_description%></textarea>
+                    <span class="form-message" style = "color: red;"></span>
+                </div>
                 <div class="form-group row">
                     <label for="content_ck" class="col-sm-2 col-form-label text-sm-right required">Content</label>
                     <textarea name="content" rows="2" id="content"><%= items.content%></textarea>
@@ -82,7 +84,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 
 <script>
@@ -105,3 +106,4 @@
         ],
     });
 </script>
+

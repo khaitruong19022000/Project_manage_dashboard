@@ -5,18 +5,16 @@
 %>
 
 <% include ./../../helper/status.ejs %>
-<% include ./../../helper/ordering.ejs %>
 <% include ./../../helper/filter-status.ejs %>
 <% include ./../../helper/pagination.ejs %>
 <% include ./../../helper/highlight-char.ejs %>
 <% include ./../../helper/sort-list.ejs %>
-<% include ./../../helper/select-box-menu-child.ejs %>
 
-<h3><%- locals.flash %></h3>
+<% include ./../../../flash.ejs %>
 
 <div class="row mb-2">
     <div class="col-sm-6">
-        <h1 class="m-0">Menu</h1>
+        <h1 class="m-0">Danh Mục <%= pageTitle%></h1>
     </div>
 </div>
 <div class="card card-info card-outline">
@@ -93,10 +91,9 @@
 								</div>
 							</th>
 							<th class="text-center">#</a></th>
-							<%- sortListHelper(linkPrefix, 'Menu', 'menu', sortField, sortType) %>
+							<%- sortListHelper(linkPrefix, 'Menu', 'name', sortField, sortType) %>
 							<th class="text-center">Link</th>
 							<th class="text-center">Parent</th>
-							<%- sortListHelper(linkPrefix, 'Menu_Child', 'menu_child', sortField, sortType) %>
 							<%- sortListHelper(linkPrefix, 'Status', 'status', sortField, sortType) %>
 							<th class="text-center">Action</th>
 						</tr>
@@ -114,20 +111,11 @@
 							</td>
 							<td class="text-center"><%= index+1 %></td>
 							<td class="text-center"><%- highlightHelper(value.name, keyword) %></td>
-							<% if (value.link !== "") { %>
-								<td class="text-center">
-									<span class="badge badge-success"><%= value.link %></span>
-								</td>
-							<% } else { %>
-								<td class="text-center">
-									<span class="badge badge-danger">empty</span>
-								</td>
-							<% } %>
-
-							<td class="text-center"><%= value.parent %></td>
-
-							<td class="text-center position-relative" >
-								<%- selectBoxMenuChildHelper('child', value.child, "") %>
+							<td class="text-center">
+								<span class="badge <%=(value.parent=="true" ? 'badge-success' : 'badge-primary' ) %> "><%= value.link %></span>
+							</td>
+							<td class="text-center">
+								<span class="badge <%=(value.parent=="true" ? 'badge-success' : 'badge-primary' ) %> "><%= value.parent %></span>
 							</td>
 
 							<td id="changeStatus-<%= value.id%>" class="text-center position-relative">

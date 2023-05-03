@@ -19,7 +19,7 @@
 
 /*Setting*/
 button.btn_setting{
-  width: 150px;
+  width: 115px;
 }
 
 div.button_setting{
@@ -41,3 +41,49 @@ table.my_table{
 table.my_table th.name{
     height: 70px;
 }
+
+.form-group-sub{
+  margin-left: 5%;
+}
+
+.form-group-parent-left{
+  float: left;
+  background-color: rgb(215, 215, 210);
+  margin: 0 0 3% 0;
+  width: 45%;
+}
+
+.form-group-parent-right{
+  float: right;
+  background-color: rgb(241, 241, 236);
+  margin: 0 3% 3% 0;
+  width: 45%;
+}
+
+.form-parent{
+  margin: 6%;
+}
+
+/* menu */
+  /* menu form */
+.select_link{
+  width: 20%;
+  margin-left: 40%;
+}
+  /*end menu form*/
+
+.dropzone .dz-preview .dz-image img {
+  width: 100% !important;
+}
+
+/*Loai Giam Gia start*/
+.loaiGiamGia{
+  margin-left: 4%;
+}
+
+.inputloaiGiamGia{
+  float: right;
+  margin-right: 30%;
+  width: 30%;
+}
+/*Loai Giam Gia end*/

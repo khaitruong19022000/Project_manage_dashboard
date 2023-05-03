@@ -1,102 +1,122 @@
-<header id="masthead" class="header ttm-header-style-01">
-    <!-- site-header-menu -->
-    <div id="site-header-menu" class="site-header-menu">
-        <div class="site-header-menu-inner ttm-stickable-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!--site-navigation -->
-                        <div class="site-navigation d-flex flex-row align-items-center justify-content-between">
-                            <!-- site-branding -->
-                            <div class="site-branding ">
-                                <a class="home-link" href="/" title="Inoterior" rel="home">
-                                    <img id="logo-img" width="100" height="53" class="img-fluid" src="frontend/images/logo.png" alt="logo-img">
-                                </a>
-                            </div><!-- site-branding end -->
-                            <div class="d-flex flex-row">
-                                <div class="btn-show-menu-mobile menubar menubar--squeeze">
-                                    <span class="menubar-box">
-                                        <span class="menubar-inner"></span>
-                                    </span>
-                                </div>
-                                <!-- menu -->
-                                <nav class="main-menu menu-mobile" id="menu">
-                                    <ul class="menu">
-                                        <li class="mega-menu-item active">
-                                            <a href="/" class="mega-menu-link">Home</a>
-                                        </li>
-                                        <li class="mega-menu-item">
-                                            <a href="pages/about" class="mega-menu-link">Bộ sưu tập</a>
-                                            <ul class="mega-submenu">
-                                                <li><a href="pages/about">About Us</a></li>
-                                                <li><a href="pages/service">Services</a></li>
-                                                <li><a href="pages/team">Our Team</a></li>
-                                                <li><a href="pages/team_detail">Team Details</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-menu-item">
-                                            <a href="#" class="mega-menu-link">Services</a>
-                                            <ul class="mega-submenu">
-                                                <li><a href="pages/architecture">Architecture</a></li>
-                                                <li><a href="interior-work.html">Interior Work</a></li>
-                                                <li><a href="retail-designs.html">Retail Designs</a></li>
-                                                <li><a href="layout.html">2D/3D Layouts</a></li>
-                                                <li><a href="inter-design.html">Inter Design</a></li>
-                                                <li><a href="decoration-art.html">Decoration Art</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-menu-item">
-                                            <a href="#" class="mega-menu-link">Projects</a>
-                                            <ul class="mega-submenu">
-                                                <li><a href="project-style-01.html">Project Style One</a></li>
-                                                <li><a href="project-single.html">Project Single View</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-menu-item">
-                                            <a href="#" class="mega-menu-link">Blog</a>
-                                            <ul class="mega-submenu">
-                                                <li><a href="blog.html">Blog Classic</a></li>
-                                                <li><a href="blog-single.html">Blog Single View</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-menu-item">
-                                            <a href="product.html">Product</a>
-                                        </li>
-                                        <li class="mega-menu-item">
-                                            <a href="contact-us.html">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                </nav><!-- menu end -->
-                                <div class="header_extra d-flex flex-row align-items-center justify-content-end">
-                                    <div class="header_search">
-                                        <a href="#" class="btn-default search_btn"><i class="fa fa-search"></i></a>
-                                        <div class="header_search_content">
-                                            <div class="header_search_content_inner">
-                                                <a href="#" class="close_btn"><i class="ti ti-close"></i></a>
-                                                <form id="searchbox" method="get" action="#">
-                                                    <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Type Word Then Enter.." value="">
-                                                    <button type="submit" class="btn close-search"><i class="ti ti-search"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="header_cart">
-                                        <a href="#" class="button-cart">
-                                            <div class="cart_icon"><i class="fa fa-shopping-cart"></i></div>
-                                            <div class="cart_count">0</div>
-                                        </a>
-                                    </div>
-                                    <div class="header_btn">
-                                        <a class="ttm-btn ttm-btn-size-md btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="contact-us.html">Get A Quotes!</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- site-navigation end-->
+<% include ./../helper/menu.ejs %>
+
+<header id="header" class="header-size-sm border-bottom-0">
+    <div id="header-wrap">
+        <div class="container">
+            <div class="header-row justify-content-lg-between">
+
+                <!-- Logo
+                ============================================= -->
+                <div id="logo" class="mx-auto col-auto flex-column order-2">
+                    <a href="/" class="standard-logo">
+                        <img src="uploads/logo/<%= listSetting.logo%>" alt="Canvas Logo" class="logo">
+                    </a>
+                    <a href="/" class="retina-logo">
+                        <img src="uploads/logo/<%= listSetting.logo%>" alt="Canvas Logo" class="logo">
+                    </a>
+                </div><!-- #logo end -->
+
+                <div class="header-misc col-auto col-lg-3 order-3 justify-content-lg-end ms-0 ms-sm-3 px-0">
+                    <!-- Top Login
+                    ============================================= -->
+                    <% if(userInfo._id === undefined) { %>
+                    <div id="top-account">
+                        <a href="/dang-nhap" >
+                            <i class="icon-line2-user me-1 position-relative" style="top: 1px;"></i>
+                            <span class="d-none d-sm-inline-block font-primary fw-medium">Login</span>
+                        </a>
                     </div>
+                    <% } else { %>
+                        <% if (userInfo.accept === 'true') { %>
+                            <div id="top-account" style="padding-right: 25px;">
+                                <a href="/admin"  target="_blank">
+                                    <i class="icon-dribbble me-1 position-relative" style="top: 1px;"></i>
+                                    <span class="d-none d-sm-inline-block font-primary fw-medium">Dashboard</span>
+                                </a>
+                            </div>
+                        <% } %>
+                            <div id="top-account">
+                                <a href="/admin/authen/logout" >
+                                    <i class="icon-line2-logout me-1 position-relative" style="top: 1px;"></i>
+                                    <span class="d-none d-sm-inline-block font-primary fw-medium">Logout</span>
+                                </a>
+                            </div>
+                    <% } %>
+                    <!-- #top-login end -->
+                    <!-- Top Search
+                    ============================================= -->
+                    <div id="top-search" class="header-misc-icon">
+                        <a href="#" id="top-search-trigger">
+                            <i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--themecolor)" viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <circle cx="115.99512" cy="116" r="84" opacity="0.2"></circle>
+                                <circle cx="115.99512" cy="116" r="84" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                                <line x1="175.38868" y1="175.40039" x2="223.98926" y2="224.00098" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                            </svg></i>
+                            <i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--themecolor)" viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <circle cx="128" cy="128" r="96" opacity="0.2"></circle>
+                                <circle cx="128" cy="128" r="96" fill="none" stroke="var(--themecolor)" stroke-miterlimit="10" stroke-width="16"></circle>
+                                <line x1="160" y1="96" x2="96" y2="160" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="160" y1="160" x2="96" y2="96" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                            </svg></i>
+                        </a>
+                    </div><!-- #top-search end -->
+
+                    <!-- Top Cart
+                    ============================================= -->
+                    <div id="top-cart" class="header-misc-icon">
+                        <a href="#" class="side-panel-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--themecolor)" viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <path d="M62.54543,144H188.10132a16,16,0,0,0,15.74192-13.13783L216,64H48Z" opacity="0.2"></path>
+                                <path d="M184,184H69.81818L41.92162,30.56892A8,8,0,0,0,34.05066,24H16" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                                <circle cx="80" cy="204" r="20" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                                <circle cx="184" cy="204" r="20" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                                <path d="M62.54543,144H188.10132a16,16,0,0,0,15.74192-13.13783L216,64H48" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            </svg>
+                            <span class="top-cart-number" id="top-cart-number"></span>
+                        </a>
+                    </div><!-- #top-cart end -->
+
                 </div>
+
+                <!-- Mobile Menu Icon
+                ============================================= -->
+                <div id="primary-menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                        <defs><style>.a,.c{fill:none;}.b{fill:var(--themecolor);opacity:0.2;}.c,.d{stroke:var(--themecolor);}.c{stroke-miterlimit:10;stroke-width:14px;}.d{stroke-linecap:round;stroke-linejoin:round;stroke-width:13px;}</style></defs>
+                        <rect class="a" width="24" height="24"/>
+                        <circle class="b" cx="96" cy="96" r="96" transform="translate(32 32)"/>
+                        <circle class="c" cx="96" cy="96" r="96" transform="translate(32 32)"/>
+                        <line class="d" x2="85" transform="translate(86 127)"/><line class="d" x2="85" transform="translate(86 97)"/>
+                        <line class="d" x2="85" transform="translate(86 159)"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--themecolor)" viewBox="0 0 256 256">
+                        <rect width="256" height="256" fill="none"></rect>
+                        <circle cx="128" cy="128" r="96" opacity="0.2"></circle>
+                        <circle cx="128" cy="128" r="96" fill="none" stroke="var(--themecolor)" stroke-miterlimit="10" stroke-width="16"></circle>
+                        <line x1="160" y1="96" x2="96" y2="160" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                        <line x1="160" y1="160" x2="96" y2="96" fill="none" stroke="var(--themecolor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    </svg>
+                </div>
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav class="primary-menu with-arrows order-lg-1 order-last px-0">
+                    <ul class="menu-container">
+                        <%- menuHelper(listMenu, listProductCategory) %>
+                    </ul>
+
+                </nav><!-- #primary-menu end -->
+
+                <!-- Top Search Form
+                ============================================= -->
+                <form class="top-search-form" id="searchProductHome" action="/product" method="get">
+                    <input type="text" name="search" class="form-control" value="" placeholder="Tìm Kiếm Sản Phẩm">
+                </form>
             </div>
         </div>
     </div>
-    <!-- site-header-menu end-->
+    <div class="header-wrap-clone"></div>
 </header>

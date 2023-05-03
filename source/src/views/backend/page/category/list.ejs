@@ -5,7 +5,7 @@
 %>
 
 <% include ./../../helper/status.ejs %>
-<% include ./../../helper/ordering.ejs %>
+<% include ./../../helper/inputNumber.ejs %>
 <% include ./../../helper/filter-status.ejs %>
 <% include ./../../helper/pagination.ejs %>
 <% include ./../../helper/highlight-char.ejs %>
@@ -14,7 +14,7 @@
 <h3><%- locals.flash %></h3>
 <div class="row mb-2">
     <div class="col-sm-6">
-        <h1 class="m-0">Danh mục sản phẩm</h1>
+        <h1 class="m-0">Danh mục <%= pageTitle%></h1>
     </div>
 </div>
 <div class="card card-info card-outline">
@@ -116,7 +116,7 @@
 							</td>
 
 							<td class="text-center position-relative" >
-								<%- orderingHelper(value.id, value.ordering, linkPrefix) %>
+								<%- numberHelper(value.id, value.ordering, linkPrefix) %>
 							</td>
 
 							<td class="text-center">

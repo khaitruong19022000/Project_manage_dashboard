@@ -1,76 +1,30 @@
-const routerName = 'setting';
-const renderName = `backend/page/${routerName}/`;
+const Parser = require('rss-parser');
+const parser = new Parser();
 
 const SettingModel = require(`${__path_models}setting_model`)
-const notify = require(`${__path_configs}notify`)
-
-const fileHelpers = require(`${__path_helpers}file`)
-const uploadAvatar = fileHelpers.upload('logo', `${__path_public}uploads/logo/`)
 
 module.exports = {
-    getSetting: async (req, res) => {
+    getSetting: async () => {
         let data = {}
         data = await SettingModel.find({})
-        pageTitle = 'Settings Form'
 
         return {
-            pageTitle,
             data
         }
     },
-    saveSetting: async (req, res) => { // (NewData add, edit item)
-        uploadAvatar(req, res, async (err) => {
-            req.body = JSON.parse(JSON.stringify(req.body))
-            let item = Object.assign(req.body)
-
-            if (err) {
-                let errorArr = {}
-                let data = {}
-
-                if(err.code === 'LIMIT_FILE_SIZE') err = 'Kích thước file ko phù hợp'
-                errorArr['avatar'] = [err]
-
-                data = await SettingModel.find({})
-                pageTitle = 'Edit - Form'
-                
-                res.render(`${renderName}form` , {
-                    items : data,
-                    pageTitle,
-                    errorArr
-                });
-                return;
-            } else {
-                if(req.file == undefined){
-                    item.logo = item.image_old;
-                } else {
-                    item.logo = req.file.filename;
-                    fileHelpers.remove('src/public/uploads/logo/', item.image_old)
-                }
-                id = item.id;
-
-                let data = {
-                    footer:{},
-                    social:{},
-                    logo:{},
-                }
     
-                data.footer.copyright = item.Copyright
-                data.footer.phone     = item.phone
-                data.footer.location  = item.location
-                data.footer.email     = item.email
-    
-                data.social.facebook  = item.facebook
-                data.social.zalo      = item.zalo
-                data.social.instagram = item.instagram
-    
-                data.logo.brand       = item.name_brand
-                data.logo.logo        = item.logo
-
-                SettingModel.updateOne({ _id: id }, data, (err, result) => {
-                    req.flash('success', notify.EDIT_SUCCESS, false)
-                    res.redirect('/admin/setting/')
-                });
-            }
-        })
+    editSetting: async (obj) => { // (NewData add, edit item)
+        await SettingModel.updateOne({ _id: obj.id }, obj.data);
     },
+
+    show_frontend: async () => {
+        let data = {}
+        data = await SettingModel.find({})
+
+        let dataSetting = JSON.parse(data[0].setting)
+
+        return {
+            dataSetting
+        }
+    }
 }
